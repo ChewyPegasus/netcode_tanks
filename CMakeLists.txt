@@ -29,6 +29,7 @@ endif()
 
 add_library(netcode_core
   src/bitstream.cpp
+  src/packets.cpp
   src/reliability.cpp
   src/simulation.cpp)
 target_include_directories(netcode_core PUBLIC include)
@@ -49,6 +50,7 @@ if(NETCODE_BUILD_TESTS)
 
   add_executable(netcode_tests
     tests/test_bitstream.cpp
+    tests/test_packets.cpp
     tests/test_reliability.cpp
     tests/test_sequence.cpp
     tests/test_simulation.cpp)
