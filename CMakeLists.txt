@@ -28,7 +28,8 @@ else()
 endif()
 
 add_library(netcode_core
-  src/bitstream.cpp)
+  src/bitstream.cpp
+  src/reliability.cpp)
 target_include_directories(netcode_core PUBLIC include)
 target_link_libraries(netcode_core PUBLIC netcode_options)
 
@@ -46,7 +47,9 @@ if(NETCODE_BUILD_TESTS)
   FetchContent_MakeAvailable(googletest)
 
   add_executable(netcode_tests
-    tests/test_bitstream.cpp)
+    tests/test_bitstream.cpp
+    tests/test_reliability.cpp
+    tests/test_sequence.cpp)
   target_link_libraries(netcode_tests PRIVATE netcode_core GTest::gtest_main)
 
   include(GoogleTest)
